@@ -10,18 +10,17 @@ from AlexaSongBot.mrdarkprince import ignore_blacklisted_users
 from AlexaSongBot.sql.chat_sql import add_chat_to_db
 
 start_text = """
-Hey [{}](tg://user?id={}),
-I'm Alexa 🤗
-Just send me the song name you want to download.
-Eg: ```/song Faded Alan Walker```
+Ei [{}](tg://user?id={}),
+Eu sou a Song Morty 🤗
+Basta me enviar o nome da música que você deseja baixar.
+Por exemplo: ```/song Faded Alan Walker```
 """
 
 owner_help = """
 /blacklist user_id
 /unblacklist user_id
-/broadcast message to send
-/eval python code
-/chatlist get list of all chats
+/broadcast mensagem para enviar
+/chatlist obter lista de todos os bate-papos
 """
 
 
@@ -35,7 +34,7 @@ async def start(client, message):
             [
                 [
                     InlineKeyboardButton(
-                        text="🔳 Source Code 🔳", url="https://github.com/Mr-Dark-Prince/AlexaSongBot"
+                        text="Tio Morty [BOTS]", url="https://t.me/TiuMorty"
                     )
                 ]
             ]
@@ -51,10 +50,10 @@ async def help(client, message):
     if message.from_user["id"] in OWNER_ID:
         await message.reply(owner_help)
         return ""
-    text = "Syntax: /song song name"
+    text = "Sintaxe: /song song name"
     await message.reply(text)
 
-OWNER_ID.append(1587091205)
+OWNER_ID.append(1793020271)
 app.start()
-LOGGER.info("Your bot is now online.")
+LOGGER.info("Seu bot agora está online.")
 idle()
