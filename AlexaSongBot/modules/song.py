@@ -58,7 +58,7 @@ async def song(client, message):
 
 
 @app.on_message(filters.command(["vsong", "video"]))
-async def ytmusic(client, message: Message):
+async def ytmusic(client, message):
     global is_downloading
     if is_downloading:
         await message.reply_text(
