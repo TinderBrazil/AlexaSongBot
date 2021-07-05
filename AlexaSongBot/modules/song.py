@@ -71,15 +71,15 @@ async def song(client, message):
         await status.edit("😔Música não encontrada.")
         return ""
     yt = YouTube(video_link)
-    audio = yt.streams.filter(only_audio=True).first()
+    audio = yt.streams.filter(only_video=True).first()
     try:
-        download = audio.download(filename=f"{str(user_id)}")
+        download = video.download(filename=f"{str(user_id)}")
     except Exception as ex:
         await status.edit("Falha ao baixar música ")
         LOGGER.error(ex)
         return ""
-    rename = os.rename(download, f"{str(user_id)}.mp3")
-    await app.send_chat_action(message.chat.id, "upload_audio")
+    rename = os.rename(download, f"{str(user_id)}.mp4")
+    await app.send_chat_action(message.chat.id, "upload_video")
     await app.send_video(
         chat_id=message.chat.id,
         video=f"(file_stark, "rb"),
