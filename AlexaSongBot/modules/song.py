@@ -82,7 +82,7 @@ async def song(client, message):
     await app.send_chat_action(message.chat.id, "upload_video")
     await app.send_video(
         chat_id=message.chat.id,
-        video=f"(file_stark, "rb"),
+        Video=f"{str(user_id)}.mp4",
         duration=int(yt.length),
         title=str(yt.title),
         performer=str(yt.author),
